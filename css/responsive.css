@@ -1,0 +1,33 @@
+/* ==========================================================================
+   DESIGN FOR AN OPEN MIND — RESPONSIVE ADAPTATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem !important;
+    line-height: 0.95 !important;
+  }
+  
+  .section-headline {
+    font-size: 2.5rem !important;
+    line-height: 1.0 !important;
+  }
+
+  .floating-orbit-container {
+    opacity: 0.4;
+  }
+
+  #custom-cursor {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-node-card {
+    padding: 1.5rem !important;
+  }
+}

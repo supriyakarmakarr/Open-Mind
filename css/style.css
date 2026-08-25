@@ -1,0 +1,193 @@
+/* ==========================================================================
+   DESIGN FOR AN OPEN MIND — REFINED HIGH-CONTRAST STYLESHEET
+   Clean, Crisp, Minimal, Premium Editorial Neuroscience Interface
+   ========================================================================== */
+
+:root {
+  --color-void: #050608;
+  --color-void-dark: #090b10;
+  --color-silver: #e2e8f0;
+  --color-off-white: #ffffff;
+  --color-cyan-core: #00f0ff;
+  --color-cyan-glow: #38bdf8;
+  --color-violet-light: #a855f7;
+  --color-violet-deep: #6b21a8;
+  --color-acid-green: #39ff14;
+  --font-syne: 'Syne', sans-serif;
+  --font-sans: 'Space Grotesk', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Smooth Scrolling & Base */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-void);
+  color: var(--color-off-white);
+  cursor: default;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-void);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+/* Minimal Film Grain Texture */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Crisp Ambient Vignette */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 50%, transparent 45%, rgba(5, 6, 8, 0.8) 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan-core);
+}
+
+/* Custom Magnetic Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  position: absolute;
+  top: -3.5px;
+  left: -3.5px;
+  width: 7px;
+  height: 7px;
+  background: var(--color-cyan-core);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--color-cyan-core);
+  transition: transform 0.1s ease-out;
+}
+
+.cursor-ring {
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(0, 240, 255, 0.6);
+  border-radius: 50%;
+  transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+body.cursor-hover .cursor-ring {
+  width: 56px;
+  height: 56px;
+  top: -28px;
+  left: -28px;
+  border-color: var(--color-cyan-core);
+  background: rgba(0, 240, 255, 0.08);
+}
+
+body.cursor-violet .cursor-ring {
+  border-color: var(--color-violet-light);
+  background: rgba(168, 85, 247, 0.12);
+}
+
+body.cursor-green .cursor-ring {
+  border-color: var(--color-acid-green);
+  background: rgba(57, 255, 20, 0.12);
+}
+
+/* High-Contrast Typography Utilities */
+.text-stroke-glow {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 0 35px rgba(0, 240, 255, 0.35);
+}
+
+.text-cyan-glow {
+  color: var(--color-cyan-core);
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+}
+
+/* Audio Equalizer Bars */
+.audio-bars .bar {
+  width: 2px;
+  height: 100%;
+  background: var(--color-cyan-core);
+  border-radius: 1px;
+  transform-origin: bottom;
+}
+
+.audio-playing .audio-bars .bar-1 {
+  animation: equalize 0.8s ease-in-out infinite alternate;
+}
+.audio-playing .audio-bars .bar-2 {
+  animation: equalize 0.6s ease-in-out 0.2s infinite alternate;
+}
+.audio-playing .audio-bars .bar-3 {
+  animation: equalize 0.9s ease-in-out 0.4s infinite alternate;
+}
+
+@keyframes equalize {
+  0% { transform: scaleY(0.2); }
+  100% { transform: scaleY(1); }
+}
+
+/* Bias Fragment Glitch on Hover */
+.bias-fragment {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bias-fragment:hover {
+  box-shadow: 0 15px 45px rgba(168, 85, 247, 0.25);
+}
+
+.bias-fragment:hover h3 {
+  animation: textGlitch 0.3s ease;
+}
+
+@keyframes textGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* Team Node Cards */
+.team-node-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-node-card:hover {
+  transform: translateY(-6px);
+}

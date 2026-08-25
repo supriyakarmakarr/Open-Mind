@@ -1,0 +1,71 @@
+/* ==========================================================================
+   DESIGN FOR AN OPEN MIND — KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+/* Floating Words */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes floatDelayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(-2deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(18px) rotate(1.5deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 9.5s ease-in-out 1.5s infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 11s ease-in-out 0.8s infinite;
+}
+
+/* Scroll Bounce Indicator */
+@keyframes scrollBounce {
+  0% { transform: translateY(0); opacity: 1; }
+  80% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.animate-scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Ultra Slow Rings */
+@keyframes spinUltraSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinReverseSlow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-spin-ultra-slow {
+  animation: spinUltraSlow 35s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinReverseSlow 28s linear infinite;
+}
+
+/* Pulse Glows */
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
